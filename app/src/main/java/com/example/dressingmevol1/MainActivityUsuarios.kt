@@ -25,14 +25,14 @@ class MainActivityUsuarios : AppCompatActivity() {
 
 
     fun LlenarInformacion(){
-        val datasource = EventosDataSource(this)
+        val datasource = UsuariosDataSource(this)
 
-        val registros = ArrayList<Evento>()
+        val registros = ArrayList<Usuario>()
         val cursor = datasource.consultarEventos()
 
         while (cursor.moveToNext())
         {
-            val columnas = Evento(
+            val columnas = Usuario(
                 cursor.getInt(0),
                 cursor.getString(1),
                 cursor.getString(2)
@@ -41,11 +41,11 @@ class MainActivityUsuarios : AppCompatActivity() {
         }
 
         val adaptador = AdaptadorEventos(this, registros)
-        listaeventos.adapter = adaptador
+        listausuarios.adapter = adaptador
 
-        listaeventos.setOnItemClickListener { parent, view, position, id ->
-            val item = parent.getItemAtPosition(position) as Evento
-            val intent = Intent(this@MainActivity, DetalleEventos:: class.java)
+        listausuarios.setOnItemClickListener { parent, view, position, id ->
+            val item = parent.getItemAtPosition(position) as Usuario
+            val intent = Intent(this@MainActivity, DetalleUsuarios:: class.java)
 
             intent.putExtra("id", item.iD_EVENTO)
             intent.putExtra("dia", item.diA_EVENTO)
@@ -56,7 +56,7 @@ class MainActivityUsuarios : AppCompatActivity() {
     }
 
     fun AgregarEventos(view:View){
-        val intent = Intent(this@MainActivity, DetalleEventos:: class.java)
+        val intent = Intent(this@MainActivity, DetalleUsuarios:: class.java)
         startActivity(intent)
     }
 
@@ -70,9 +70,9 @@ class MainActivityUsuarios : AppCompatActivity() {
         this.LlenarInformacion()
     }
 
-    internal class AdaptadorEventos(context: Context, datos:List<Evento>):
-        ArrayAdapter<Evento>(context, R.layout.lista_eventos, datos) {
-        var _datos: List<Evento>
+    internal class AdaptadorEventos(context: Context, datos:List<Usuario>):
+        ArrayAdapter<Usuario>(context, R.layout.lista_usuarios, datos) {
+        var _datos: List<Usuario>
 
         init {
             _datos = datos
@@ -81,7 +81,7 @@ class MainActivityUsuarios : AppCompatActivity() {
         @NonNull
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
             val inflater = convertView ?: LayoutInflater.from(context)
-                .inflate(R.layout.lista_eventos, parent, false)
+                .inflate(R.layout.lista_usuarios, parent, false)
             val currentEntity = getItem(position)
 
             if (currentEntity != null) {
