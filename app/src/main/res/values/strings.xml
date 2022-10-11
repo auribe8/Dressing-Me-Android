@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Dressing me vol. 1</string>
+    <string name="app_name">Dressing me</string>
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
 </resources>
