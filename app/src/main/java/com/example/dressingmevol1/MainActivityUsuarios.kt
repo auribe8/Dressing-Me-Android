@@ -45,20 +45,20 @@ class MainActivityUsuarios : AppCompatActivity() {
 
         listausuarios.setOnItemClickListener { parent, view, position, id ->
             val item = parent.getItemAtPosition(position) as Usuario
-            val intent = Intent(this@MainActivity, DetalleUsuarios:: class.java)
+            val intent = Intent(this@MainActivityUsuarios, DetalleUsuarios:: class.java)
 
             intent.putExtra("id", item.iD_USUARIO)
-            intent.putExtra("nombre", item.nombre_USUARIO)
-            intent.putExtra("telefono", item.telefono_USUARIO)
-            intent.putExtra("correo", item.correo_USUARIO)
-            intent.putExtra("contraseña", item.contraseña_USUARIO)
+            intent.putExtra("nombre", item.nombrE_USUARIO)
+            intent.putExtra("telefono", item.telefonO_USUARIO)
+            intent.putExtra("correo", item.correO_USUARIO)
+            intent.putExtra("contraseña", item.contraseñA_USUARIO)
 
             startActivity(intent)
         }
     }
 
     fun AgregarUsuarios(view:View){
-        val intent = Intent(this@MainActivity, DetalleUsuarios:: class.java)
+        val intent = Intent(this@MainActivityUsuarios, DetalleUsuarios:: class.java)
         startActivity(intent)
     }
 
@@ -87,7 +87,7 @@ class MainActivityUsuarios : AppCompatActivity() {
             val currentEntity = getItem(position)
 
             if (currentEntity != null) {
-                inflater.LblTitulo.text = currentEntity.descripcioN_USUARIO
+                inflater.lblTitulo.text = currentEntity.descripcioN_USUARIO
             }
 
             return inflater
