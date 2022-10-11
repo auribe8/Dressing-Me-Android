@@ -1,4 +1,8 @@
 package Entidades
 
-class Usuario {
+class Usuario (ID_USUARIO:Int, NOMBRE_USUARIO:String, TELEFONO_USUARIO:String, CORREO_USUARIO:String, CONTRASEÑA_USUARIO:String){
+    var iD_USUARIO = ID_USUARIO
+    var nombrE_USUARIO = NOMBRE_USUARIO
+    var telefonO_USUARIO = TELEFONO_USUARIO
+    var contraseñA_USUARIO = CONTRASEÑA_USUARIO
 }
