@@ -10,7 +10,7 @@ import java.lang.Exception
 class UsuariosDataSource(context: Context) {
     private val openHelper:BdOpenHelper = BdOpenHelper(context)
     private val database:SQLiteDatabase
-    object ColumnEventos {
+    object ColumnUsuarios {
         var ID_USUARIO = BaseColumns._ID
         var NOMBRE_USUARIO = "nombre"
         var TELEFONO_USUARIO = "telefono"
@@ -21,29 +21,29 @@ class UsuariosDataSource(context: Context) {
         database = openHelper.writableDatabase
     }
 
-    fun consultarEventos(): Cursor {
+    fun consultarUsuarios(): Cursor {
         return database.rawQuery("select _id,nombre,telefono,correo,contraseña from $USUARIOS_TABLE_NAME", null)
     }
 
-    fun consultarEventos(idEvento:Int):Cursor{
+    fun consultarUsuarios(idUsuario:Int):Cursor{
         return database.rawQuery("select _id,nombre,telefono,correo,contraseña from $USUARIOS_TABLE_NAME where _id = $idUsuario", null)
     }
 
     fun guardarEvento(nombre:String, telefono:Int,correo:String,contraseña:String){
         val values = ContentValues()
-        values.put(ColumnEventos.NOMBRE_USUARIO,nombre)
-        values.put(ColumnEventos.TELEFONO_USUARIO,telefono)
-        values.put(ColumnEventos.CORREO_USUARIO,correo)
-        values.put(ColumnEventos.CONTRASEÑA_USUARIO,contraseña)
+        values.put(ColumnUsuarios.NOMBRE_USUARIO,nombre)
+        values.put(ColumnUsuarios.TELEFONO_USUARIO,telefono)
+        values.put(ColumnUsuarios.CORREO_USUARIO,correo)
+        values.put(ColumnUsuarios.CONTRASEÑA_USUARIO,contraseña)
         database.insert(USUARIOS_TABLE_NAME, null, values)
     }
 
     fun modificarEvento(nombre:String, telefono:Int,correo:String,contraseña:String,IdUsuario: Int){
         val values = ContentValues()
-        values.put(ColumnEventos.NOMBRE_USUARIO,nombre)
-        values.put(ColumnEventos.TELEFONO_USUARIO,telefono)
-        values.put(ColumnEventos.CORREO_USUARIO,correo)
-        values.put(ColumnEventos.CONTRASEÑA_USUARIO,contraseña)
+        values.put(ColumnUsuarios.NOMBRE_USUARIO,nombre)
+        values.put(ColumnUsuarios.TELEFONO_USUARIO,telefono)
+        values.put(ColumnUsuarios.CORREO_USUARIO,correo)
+        values.put(ColumnUsuarios.CONTRASEÑA_USUARIO,contraseña)
         val a = arrayOf("" + IdUsuario)
         database.update(USUARIOS_TABLE_NAME, values, "_id=?", a)
     }
@@ -63,16 +63,16 @@ class UsuariosDataSource(context: Context) {
     }
 
     companion object{
-        val USUARIOS_TABLE_NAME ="Eventos"
+        val USUARIOS_TABLE_NAME ="Usuarios"
         val STRING_TYPE = "text"
         val INT_TYPE = "integer"
-        val CREATE_EVENTOS_SCRIPT = (
+        val CREATE_USUARIOS_SCRIPT = (
                 "create table " + USUARIOS_TABLE_NAME + "(" +
-                        ColumnEventos.ID_USUARIO + " " + INT_TYPE + " primary key autoincrement," +
-                        ColumnEventos.NOMBRE_USUARIO + " " + STRING_TYPE + "not null," +
-                        ColumnEventos.TELEFONO_USUARIO + " " + INT_TYPE + "not null," +
-                        ColumnEventos.CORREO_USUARIO + " " + STRING_TYPE + "not null," +
-                        ColumnEventos.CONTRASEÑA_USUARIO + " " + STRING_TYPE + "not null)")
+                        ColumnUsuarios.ID_USUARIO + " " + INT_TYPE + " primary key autoincrement," +
+                        ColumnUsuarios.NOMBRE_USUARIO + " " + STRING_TYPE + "not null," +
+                        ColumnUsuarios.TELEFONO_USUARIO + " " + INT_TYPE + "not null," +
+                        ColumnUsuarios.CORREO_USUARIO + " " + STRING_TYPE + "not null," +
+                        ColumnUsuarios.CONTRASEÑA_USUARIO + " " + STRING_TYPE + "not null)")
         val INSERT_USUARIOS_SCRIPT = (
                 "insert into " + USUARIOS_TABLE_NAME + " values " +
                         "(null, 'Alessia Uribe Colunga', 477572912, 'auc74142@udelasalle.edu.mx', 'akdjdhhs547'), "+

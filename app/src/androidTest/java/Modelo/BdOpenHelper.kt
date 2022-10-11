@@ -20,8 +20,8 @@ class BdOpenHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, n
         db!!.execSQL(EstadisticasDataSource.CREATE_EVENTOS_SCRIPT)
         db.execSQL(EstadisticasDataSource.INSERT_EVENTOS_SCRIPT)
 
-        db!!.execSQL(UsuariosDataSource.CREATE_EVENTOS_SCRIPT)
-        db.execSQL(UsuariosDataSource.INSERT_EVENTOS_SCRIPT)
+        db!!.execSQL(UsuariosDataSource.CREATE_USUARIOS_SCRIPT)
+        db.execSQL(UsuariosDataSource.INSERT_USUARIOS_SCRIPT)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
