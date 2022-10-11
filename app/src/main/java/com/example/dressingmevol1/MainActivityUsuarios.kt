@@ -28,7 +28,7 @@ class MainActivityUsuarios : AppCompatActivity() {
         val datasource = UsuariosDataSource(this)
 
         val registros = ArrayList<Usuario>()
-        val cursor = datasource.consultarEventos()
+        val cursor = datasource.consultarUsuarios()
 
         while (cursor.moveToNext())
         {
@@ -40,22 +40,24 @@ class MainActivityUsuarios : AppCompatActivity() {
             registros.add(columnas)
         }
 
-        val adaptador = AdaptadorEventos(this, registros)
+        val adaptador = AdaptadorUsuarios(this, registros)
         listausuarios.adapter = adaptador
 
         listausuarios.setOnItemClickListener { parent, view, position, id ->
             val item = parent.getItemAtPosition(position) as Usuario
             val intent = Intent(this@MainActivity, DetalleUsuarios:: class.java)
 
-            intent.putExtra("id", item.iD_EVENTO)
-            intent.putExtra("dia", item.diA_EVENTO)
-            intent.putExtra("descripcion", item.descripcioN_EVENTO)
+            intent.putExtra("id", item.iD_USUARIO)
+            intent.putExtra("nombre", item.nombre_USUARIO)
+            intent.putExtra("telefono", item.telefono_USUARIO)
+            intent.putExtra("correo", item.correo_USUARIO)
+            intent.putExtra("contraseña", item.contraseña_USUARIO)
 
             startActivity(intent)
         }
     }
 
-    fun AgregarEventos(view:View){
+    fun AgregarUsuarios(view:View){
         val intent = Intent(this@MainActivity, DetalleUsuarios:: class.java)
         startActivity(intent)
     }
@@ -70,7 +72,7 @@ class MainActivityUsuarios : AppCompatActivity() {
         this.LlenarInformacion()
     }
 
-    internal class AdaptadorEventos(context: Context, datos:List<Usuario>):
+    internal class AdaptadorUsuarios(context: Context, datos:List<Usuario>):
         ArrayAdapter<Usuario>(context, R.layout.lista_usuarios, datos) {
         var _datos: List<Usuario>
 
@@ -85,7 +87,7 @@ class MainActivityUsuarios : AppCompatActivity() {
             val currentEntity = getItem(position)
 
             if (currentEntity != null) {
-                inflater.LblTitulo.text = currentEntity.descripcioN_EVENTO
+                inflater.LblTitulo.text = currentEntity.descripcioN_USUARIO
             }
 
             return inflater
