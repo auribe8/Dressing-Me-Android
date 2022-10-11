@@ -7,6 +7,7 @@
         <entry key="..\:/Users/aless/AndroidStudioProjects/Dressingmevol1/app/src/main/res/layout/activity_detalle_outfit.xml" value="0.286231884057971" />
         <entry key="..\:/Users/aless/AndroidStudioProjects/Dressingmevol1/app/src/main/res/layout/activity_detalle_prendas.xml" value="0.286231884057971" />
         <entry key="..\:/Users/aless/AndroidStudioProjects/Dressingmevol1/app/src/main/res/layout/activity_detalle_usuario.xml" value="0.286231884057971" />
+        <entry key="..\:/Users/aless/AndroidStudioProjects/Dressingmevol1/app/src/main/res/layout/activity_detalle_usuarios.xml" value="0.30052083333333335" />
         <entry key="..\:/Users/aless/AndroidStudioProjects/Dressingmevol1/app/src/main/res/layout/activity_main.xml" value="0.286231884057971" />
         <entry key="..\:/Users/aless/AndroidStudioProjects/Dressingmevol1/app/src/main/res/layout/activity_main_estadisticas.xml" value="0.286231884057971" />
         <entry key="..\:/Users/aless/AndroidStudioProjects/Dressingmevol1/app/src/main/res/layout/activity_main_outfits.xml" value="0.286231884057971" />
@@ -20,8 +21,6 @@
         <entry key="..\:/Users/aless/AndroidStudioProjects/Dressingmevol1/app/src/main/res/layout/lista_outfits.xml" value="0.24572649572649571" />
         <entry key="..\:/Users/aless/AndroidStudioProjects/Dressingmevol1/app/src/main/res/layout/lista_prendas.xml" value="0.286231884057971" />
         <entry key="..\:/Users/aless/AndroidStudioProjects/Dressingmevol1/app/src/main/res/layout/lista_usuarios.xml" value="0.286231884057971" />
-        <entry key="..\:/Users/smgel/OneDrive/Desktop/Trabajos escuela/Kotlin/Dressing-Me-Android/app/src/main/res/layout/activity_detalle_usuarios.xml" value="0.2028985507246377" />
-        <entry key="..\:/Users/smgel/OneDrive/Desktop/Trabajos escuela/Kotlin/Dressing-Me-Android/app/src/main/res/layout/activity_main.xml" value="0.2028985507246377" />
       </map>
     </option>
   </component>
